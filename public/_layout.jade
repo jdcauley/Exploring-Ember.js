@@ -1,0 +1,36 @@
+!!!
+html
+  head
+    link(rel="stylesheet", href="assets/css/app.css")
+    script(src="assets/js/libs/jquery-1.10.2.js").
+    script(src="assets/js/libs/handlebars-1.1.2.js").
+    script(src="assets/js/libs/ember-1.4.0.js").
+    script(src="assets/js/libs/ember-data.js").
+    script(src="assets/js/app.js").
+
+  body
+    script(type="text/x-handlebars", data-template-name="application").
+      <header class="navbar navbar-inverse">
+        <div class='container'>
+          <a href='#' class='navbar-brand'>Ember Class</a>
+          <ul class='nav navbar-nav navbar-right'>
+            <li><a href='#' class='active'>Home</a></li>
+            <li><a href='#/about'>About</a></li>
+          </ul>
+        </div>
+      </header>
+
+      <div class="container">
+        {{outlet}}
+      </div>
+
+
+      <footer>
+        <div class="container"></div>
+      </footer>
+
+    script(type="text/x-handlebars", data-template-name="index").
+      <h1>Welcome to the Flint and Flame!</h1>
+
+    script(type="text/x-handlebars", data-template-name="about").
+      <h1>About the Flint and Flame!</h1>
