@@ -12,10 +12,11 @@ html
     script(type="text/x-handlebars", data-template-name="application").
       <header class="navbar navbar-inverse">
         <div class='container'>
-          <a href='#' class='navbar-brand'>Ember Class</a>
+          {{#link-to 'index' class="navbar-brand"}}Ember Class{{/link-to}}
           <ul class='nav navbar-nav navbar-right'>
-            <li><a href='#' class='active'>Home</a></li>
-            <li><a href='#/about'>About</a></li>
+            <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+            <li>{{#link-to 'about'}}About{{/link-to}}</li>
+            <li>{{#link-to 'products'}}Products{{/link-to}}</li>
           </ul>
         </div>
       </header>
@@ -31,6 +32,31 @@ html
 
     script(type="text/x-handlebars", data-template-name="index").
       <h1>Welcome to the Flint and Flame!</h1>
+      <p>There are {{productsCount}} products</p>
+      <img {{bind-attr src="logo"}} alt="logo">
+      <p>Rendered on {{time}}</p>
+    
+    script(type="text/x-handlebars", data-template-name="products").
+      <h1>Products</h1>
+      <div class"row">
+        <div class="col-md-8">
+        {{#each}}
+          <div class="row">
+            <div class="col-md-5"> 
+              <img {{bind-attr src="image"}} class="img-responsive">
+            </div>
+            <div class="col-md-7">
+              <h2>{{title}}</h2>
+              <p class="product-description">{{description}}</p>
+              <p><button class="btn btn-success">Buy for ${{price}}</button></p>
+            </div>
+          </div>
+          {{/each}}
+          </div>
+        </div>
 
     script(type="text/x-handlebars", data-template-name="about").
       <h1>About the Flint and Flame!</h1>
+      <p>Contact {{contactName}}</p>
+      <img {{bind-attr src="avatar"}} alt="Avatar" />
+      <p>We are {{open}}</p>
