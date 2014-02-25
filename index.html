@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><link rel="stylesheet" href="assets/css/app.css"><script src="assets/js/libs/jquery-1.10.2.js"></script><script src="assets/js/libs/handlebars-1.1.2.js"></script><script src="assets/js/libs/ember-1.4.0.js"></script><script src="assets/js/libs/ember-data.js"></script><script src="assets/js/app.js"></script></head><body><script type="text/x-handlebars" data-template-name="application"><header class="navbar navbar-inverse">
+  <div class='container'>
+    {{#link-to 'index' class="navbar-brand"}}Ember Class{{/link-to}}
+    <ul class='nav navbar-nav navbar-right'>
+      <li>{{#link-to 'index'}}Home{{/link-to}}</li>
+      <li>{{#link-to 'about'}}About{{/link-to}}</li>
+      <li>{{#link-to 'products'}}Products{{/link-to}}</li>
+    </ul>
+  </div>
+</header>
+
+<div class="container">
+  {{outlet}}
+</div>
+
+
+<footer>
+  <div class="container"></div>
+</footer>
+</script><script type="text/x-handlebars" data-template-name="index"><h1>Welcome to the Flint and Flame!</h1>
+<p>There are {{productsCount}} products</p>
+<img {{bind-attr src="logo"}} alt="logo">
+<p>Rendered on {{time}}</p>
+</script><script type="text/x-handlebars" data-template-name="products/index"><p>Choose a product from those on the left!</p>
+</script><script type="text/x-handlebars" data-template-name="products"><div class="row">
+  <div class="col-sm-3">
+    <div class="list-group">
+      {{#each}}
+        {{#link-to 'product' this classNames='list-group-item'}}
+          {{title}}
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+  <div class="col-sm-9">
+    {{outlet}}
+  </div>
+</div>
+
+</script><script type="text/x-handlebars" data-template-name="product"><div class="row">
+  <div class="col-md-7">
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+    <p>Buy for ${{price}}</p>
+  </div>
+  <div class="col-md-5">
+    <img {{bind-attr src="image"}} class="img-responsive img-rounded">
+  </div>
+</div>
+</script><script type="text/x-handlebars" data-template-name="about"><h1>About the Flint and Flame!</h1>
+<p>Contact {{contactName}}</p>
+<img {{bind-attr src="avatar"}} alt="Avatar" />
+<p>We are {{open}}</p></script></body></html>
